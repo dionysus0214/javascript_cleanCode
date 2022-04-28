@@ -30,3 +30,9 @@ console.log(global); // 전역
 const city; // wrong
 city = 'busan';
 // let보단 const를 쓰는 게 좋은 이유: const는 재할당만 금지되므로 객체, 배열 같은 레퍼런스 객체를 조작할 땐 이상 없음
+
+// 전역 공간은 window, global로 나뉨
+// 브라우저 환경에서는 window, nodeJS 환경에서는 global이 최상위
+// 전역 공간은 어디서나 접근이 가능하기 때문에 런타임에서 분리되지 않는 위험 존재
+// -> 전역 변수를 만들지 않거나, 지역 변수를 만들거나, window 또는 global 영역을 조작하지 않아야 함
+// 전역 공간 사용을 줄이기 위해선 IIFE, module, closure, const, let 등을 사용하는 것이 좋음
