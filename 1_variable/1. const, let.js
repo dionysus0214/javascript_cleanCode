@@ -36,3 +36,15 @@ city = 'busan';
 // 전역 공간은 어디서나 접근이 가능하기 때문에 런타임에서 분리되지 않는 위험 존재
 // -> 전역 변수를 만들지 않거나, 지역 변수를 만들거나, window 또는 global 영역을 조작하지 않아야 함
 // 전역 공간 사용을 줄이기 위해선 IIFE, module, closure, const, let 등을 사용하는 것이 좋음
+
+// 임시 변수: scope 안에서 전역변수처럼 활용되는 것
+// 임시 변수가 함수 안에 생기면 CRUD 하고 싶은 유혹이 발생
+function getElements() {
+  const result = {    
+    title: document.querySelector('.title'),
+    text: document.querySelector('.text'),
+    value: document.querySelector('.value'),
+  };
+
+  return result;
+}
