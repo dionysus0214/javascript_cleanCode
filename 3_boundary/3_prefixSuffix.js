@@ -14,3 +14,11 @@ class FactoryFunction {
 export const STARRED_REQUEST = 'STARRED_REQUEST';
 export const STARRED_SUCCESS = 'STARRED_SUCCESS';
 export const STARRED_FAILURE = 'STARRED_FAILURE';
+
+// 매개변수의 순서가 경계
+// 호출하는 함수의 네이밍과 인자 순서의 연관성을 고려해야
+// 매개변수는 2개를 넘지 않는 것이 좋dma
+// 2개를 넘을 경우: arguments parameter, rest parameter, 매개변수를 객체에 담아서 넘김, 랩핑하는 함수 사용
+genRandomNum(1, 50);
+getDates('2022-01-01', '2022-04-30');
+shuffleArray(1, 5);
