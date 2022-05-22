@@ -48,3 +48,27 @@ function alertMessage(isAdult) {
   if (isAdult) alert('입장 가능');
   else alert('입장 불가');
 }
+
+// trythy: 참 값은 값
+if (true) { } // true
+if ({}) { } // true
+if (value.length) { } // true
+// falsy: 거짓 같은 값
+if (false) { } // false
+if (null) { } // false
+if (!'') { } // false
+
+// before
+function printName(name) {
+  if (name === undefined || name === null) {
+    return '사람이 없네요';
+  }
+  return '안녕하세요' + name + '님';
+}
+// after
+function printName(name) {
+  if (!name) {
+    return '사람이 없네요';
+  }
+  return '안녕하세요' + name + '님';
+}
