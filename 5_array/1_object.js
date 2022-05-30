@@ -27,3 +27,52 @@ function clearArray(array) {
 }
 const arr4 = [1, 2, 3];
 clearArray(arr4); // []
+
+// 배열 요소 접근
+// before
+const array = [1, 2, 3];
+function operateTime(input, operators, is) {
+  inputs[0].split('').forEach((num) => {
+    cy.get('.digit').contains(num).click();
+  });
+  inputs[1].split('').forEach((num) => {
+    cy.get('.digit').contains(num).click();
+  });
+}
+// after: 구조 분해 할당 가능
+function operateTime([firstInput, secondInput], operators, is) {
+  firstInput.split('').forEach((num) => {
+    cy.get('.digit').contains(num).click();
+  });
+  secondInput.split('').forEach((num) => {
+    cy.get('.digit').contains(num).click();
+  });
+}
+
+// before
+function clickGroupButton() {
+  const confirmButton = document.getElementsByTagName('button')[0];
+  const cancleButton = document.getElementsByTagName('button')[1];
+  const resetButton = document.getElementsByTagName('button')[2];
+}
+// after
+function clickGroupButton() {
+  const [confirmButton, cancleButton, resetButton] = document.getElementsByTagName('button');
+}
+
+// before
+function formatDate(targetDate) {
+  const date = targetDate.toISOString().split('T')[0];
+  const [year, month, day] = date.split('-');
+  return `${year}년 ${month}월 ${day}일`;
+}
+// after
+function head(arr) {
+  return arr[0] ?? ''
+}
+
+function formatDate(targetDate) {
+  const date = head(targetDate.toISOString().split('T'));
+  const [year, month, day] = date.split('-');
+  return `${year}년 ${month}월 ${day}일`;
+}
