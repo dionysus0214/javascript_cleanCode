@@ -70,9 +70,19 @@ function formatDate(targetDate) {
 function head(arr) {
   return arr[0] ?? ''
 }
-
 function formatDate(targetDate) {
   const date = head(targetDate.toISOString().split('T'));
   const [year, month, day] = date.split('-');
   return `${year}년 ${month}월 ${day}일`;
 }
+
+// 유사 배열 객체
+const arrayLikeObject = {
+  0: 'Hello',
+  1: 'World',
+  length: 2,
+};
+const arr = Array.from(arrayLikeObject); // ['Hello', 'World']
+arr.length; // 2
+Array.isArray(arr); // true
+Array.isArray(arrayLikeObject); // false
