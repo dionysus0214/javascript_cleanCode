@@ -1,6 +1,9 @@
 const price = [1000, 2000, 3000, 4000];
+
 const suffixWon = (price) => price + '원';
-const isOverOneThousand = (price) => price > 1000
+const isOverOneThousand = (price) => price > 1000;
+const ascendingList = (a, b) => a - b;
+
 function getWonPrice(priceList) {
   // let temp = [];
   // for (let i = 0; i < priceList.length; i++) {
@@ -9,7 +12,9 @@ function getWonPrice(priceList) {
   //   }
   // }
   // return priceList;
-  const isOverList = priceList.filter(isOverOneThousand);
-  return isOverList.map(suffixWon);
+  return priceList
+    .filter(isOverOneThousand) // filter로 원하는 조건에 맞는 배열 리스트 만들고
+    .sort(ascendingList) // sort 정렬
+    .map(suffixWon); // map 배열 요소들로 다시 정리
 }
-const result = getWonPrice(price);
+const result = getWonPrice(price); // ['1000원', '2000원', '3000원', '4000원']
