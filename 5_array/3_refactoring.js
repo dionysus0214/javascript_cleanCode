@@ -18,3 +18,6 @@ function getWonPrice(priceList) {
     .map(suffixWon); // map 배열 요소들로 다시 정리
 }
 const result = getWonPrice(price); // ['1000원', '2000원', '3000원', '4000원']
+
+// map vs forEach
+// 리턴값 다름(map은 새로운 배열을 만들고 forEach는 매 요소마다 함수를 실행시킴)
