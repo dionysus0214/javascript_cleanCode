@@ -19,3 +19,19 @@ const person2 = {
 		return this.firstName2 + ' ' + this.lastName2;
 	}
 };
+
+// hasOwnProperty
+const child = {
+  name: 'dudu',
+};
+child.hasOwnProperty('name'); // true
+child.hasOwnProperty('age'); // false
+
+const foo = {
+  hasOwnProperty: function () {
+    return 'hasOwnProperty';
+  },
+  bar: 'string',
+};
+foo.hasOwnProperty('bar') // hasOwnProperty
+Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
