@@ -23,3 +23,32 @@ obj.method() // 호출된 객체를 바라봄
 
 // 생성자 함수: 인스턴스를 생성
 const instance = new Func(); // 생성될 인스턴스를 가리킴
+
+
+// default value
+// before
+function createCarousel(options) {
+  options = options || {};
+  var margin = options.margin || 0;
+  var center = options.center || false;
+  var navElement = options.navElement || 'div';
+  return {
+    margin,
+    center,
+    navElement,
+  }
+}
+createCarousel(); // { margin: 0, center: false, navElement: 'div }
+// after: default paremeter 사용
+function createCarousel({
+  margin = 0,
+  center = false,
+  navElement = 'div'
+} = {}) {
+  return {
+    margin,
+    center,
+    navElement,
+  }
+}
+createCarousel(); // { margin: 0, center: false, navElement: 'div }
