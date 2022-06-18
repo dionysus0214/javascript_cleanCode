@@ -24,7 +24,6 @@ obj.method() // 호출된 객체를 바라봄
 // 생성자 함수: 인스턴스를 생성
 const instance = new Func(); // 생성될 인스턴스를 가리킴
 
-
 // default value
 // before
 function createCarousel(options) {
@@ -52,3 +51,25 @@ function createCarousel({
   }
 }
 createCarousel(); // { margin: 0, center: false, navElement: 'div }
+
+// void, return 등을 활용해 함수가 반환하는 것이 있는지를 체크해야 함
+// javascript는 return이 없는 경우 undefined를 return
+// before
+function handleClick() {
+  return setState(false); // setState()는 void 함수로 함수의 반환이 존재하지 않음
+}
+function showAlert(message) {
+  return alert(message); // alert()는 void 함수로 함수의 반환이 존재하지 않음
+}
+// after
+function handleClick() {
+  setState(false);
+}
+function showAlert(message) {
+  alert(message);
+}
+function testVoidFunc() {
+  const arr = [1, 2];
+  return arr.push(10);
+}
+testVoidFunc(); // 3
