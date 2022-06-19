@@ -73,3 +73,24 @@ function testVoidFunc() {
   return arr.push(10);
 }
 testVoidFunc(); // 3
+
+// arrow function
+// 화살표 함수는 lexical scope를 가지므로 this 조작법 주의해야함
+const user = {
+  name: 'dudu',
+  getName: () => {
+    return this.name;
+  },
+  newFriends: (...rest) => {
+    const newFriendList = Array.from(arguments); // 화살표 함수에서는 arguments, call, apply, bind 등 사용 불가(rest parameter 사용)
+    return this.name + newFriendList;
+  },
+};
+user.getName(); // undefined
+// 화살표 함수로 만든 함수는 생성자로 사용 불가
+const Person = (name, city) => {
+  this.name = name;
+  this.city = city;
+};
+const person = new Person('juju', 'seoul'); // Person is not a constructor
+// generator 함수에서 yield 사용 시 화살표 함수 지원 불가
