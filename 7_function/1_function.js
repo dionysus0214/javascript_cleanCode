@@ -94,3 +94,38 @@ const Person = (name, city) => {
 };
 const person = new Person('juju', 'seoul'); // Person is not a constructor
 // generator 함수에서 yield 사용 시 화살표 함수 지원 불가
+
+// callback function
+// before
+function register() {
+  const isConfirm = confirm(
+    '회원가입 성공',
+  );
+  if (isConfirm) {
+    redirectUserInfoPage();
+  }
+}
+
+function login() {
+  const isConfirm = confirm(
+    '로그인 성공',
+  );
+  if (isConfirm) {
+    redirectIndexPage();
+  }
+}
+// after
+function confirmModal(message, cbFunc) {
+  const isConfirm = confirm(message);
+  if (isConfirm && cbFunc) {
+    cbFunc();
+  }
+}
+
+function register() {
+  confirmModal('회원가입 성공', redirectUserInfoPage);
+}
+
+function login() {
+  confirmModal('로그인 성공', redirectIndexPage);
+}
