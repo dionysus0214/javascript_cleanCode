@@ -50,3 +50,14 @@ function multiple(num1, num2) {
 const add = add(5)(2);
 const sumAdd = add(sum); // 7
 const sumMultiple = add(multiple); // 10
+
+const arrr = [1, 2, 3, 'A', 'B'];
+function isTypeOf(type) {
+  return function(value) {
+    return typeof value === type;
+  }
+}
+const isNumber = isTypeOf('number');
+const isString = isTypeOf('string');
+arrr.filter(isNumber); // [1, 2, 3]
+arrr.filter(isString); // ['A', 'B']
