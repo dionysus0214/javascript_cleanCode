@@ -57,3 +57,15 @@ function ReactComponent() {
     </div>
   );
 }
+
+// 드모르간의 법칙
+// before
+const isValidUser = false;
+const isValidToken = false;
+if (!(isValidToken && isValidUser)) {
+  console.log('로그인 실패');
+}
+// after
+if (!isValidToken || !isValidUser) {
+  console.log('로그인 실패');
+}
